@@ -1,5 +1,6 @@
 <h1 align="center"> 🚨 AI-powered phishing detection system 🚨 </h1>
 
+![image](https://github.com/user-attachments/assets/cdfb7afc-6eeb-4fdb-9b26-6bcedc247ff4)
 
 
 ##  ⚙️ About the Project 

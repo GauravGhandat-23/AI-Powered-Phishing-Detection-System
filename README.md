@@ -7,7 +7,7 @@
 
 An AI-powered phishing detection system using machine learning to classify emails as **phishing** or **safe**. Built using **Python**, **Streamlit**, and **scikit-learn**, this system analyzes email bodies and URLs to detect phishing attempts.
 
-![Phishing Detection](https://img.shields.io/badge/Phishing%20Detection-Active-brightgreen)
+![Phishing Detection](https://ai-powered-phishing-detection-system-ples7i6bq2tzkaguiykzzt.streamlit.app/)
 
 ## 🚀 Features
 

@@ -31,8 +31,8 @@ An AI-powered phishing detection system using machine learning to classify email
 1. Clone the repository
    
    ```bash
-   git clone https://github.com/yourusername/phishing-detection-system.git
-   cd phishing-detection-system
+   git clone https://github.com/yourusername/AI-Powered-Phishing-Detection-System.git
+   cd AI-Powered-Phishing-Detection-System
 
 2. Install Dependencies
    Create and activate a virtual environment, then install required packages:

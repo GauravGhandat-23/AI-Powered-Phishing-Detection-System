@@ -1,20 +1,26 @@
-<h1 align="center"> 🚨 AI-powered phishing detection system 🚨 </h1>
+<h1 align="center"> 🚨 AI-Powered Phishing & Fraud Detection System 🚨 </h1>
 
-![image](https://github.com/user-attachments/assets/cdfb7afc-6eeb-4fdb-9b26-6bcedc247ff4)
+## ⚙️ About the Project
 
-
-##  ⚙️ About the Project 
-
-An AI-powered phishing detection system using machine learning to classify emails as **phishing** or **safe**. Built using **Python**, **Streamlit**, and **scikit-learn**, this system analyzes email bodies and URLs to detect phishing attempts.
+An AI-powered threat detection console that classifies emails as **phishing** or **safe**, and layers on a rule-based **fraud risk score** for social-engineering patterns. Built using **Python**, **Streamlit**, and **scikit-learn**, the system analyzes email bodies, embedded URLs, and known fraud/scam language to flag malicious content — all wrapped in a dark, SOC-console-style interface.
 
 [![Phishing Detection](https://img.shields.io/badge/Phishing%20Detection-Active-brightgreen)](https://ai-powered-phishing-detection-system-ples7i6bq2tzkaguiykzzt.streamlit.app/)
+[![Fraud Risk Engine](https://img.shields.io/badge/Fraud%20Risk%20Engine-Active-orange)](https://ai-powered-phishing-detection-system-ples7i6bq2tzkaguiykzzt.streamlit.app/)
 
 ## 🚀 Features
 
-- **Email Body Analysis**: Uses text processing to identify phishing patterns.
-- **URL Scanning**: Extracts and evaluates URLs within the email to detect malicious links.
-- **Machine Learning**: Trained with labeled phishing data to make predictions on email content.
-- **Interactive UI**: Built with Streamlit for real-time predictions.
+- **Email Body Analysis**: Uses NLP text processing (stopword removal, cleaning) to identify phishing patterns.
+- **URL Scanning**: Extracts and evaluates URLs within the email — domain length, path length, protocol, and live status code — to detect malicious links.
+- **Machine Learning Classification**: Naive Bayes model trained on labeled phishing data (`CountVectorizer` + `MultinomialNB`) to predict phishing vs. safe.
+- **🆕 Fraud Risk Engine**: A local, rule-based heuristic scanner that scores emails 0–100 across four social-engineering categories:
+  - Advance-Fee / Inheritance Scams
+  - Financial / Payment Urgency
+  - Credential / Identity Harvesting
+  - Pressure / Intimidation Tactics
+- **🆕 Bulk CSV Scan**: Upload a CSV of many emails and run phishing + fraud scoring across the whole batch in one pass, with results downloadable as CSV.
+- **🆕 Session Scan History**: Every scan performed in the session is logged with timestamp, verdict, and risk scores — exportable and clearable.
+- **Model Training**: Retrain the phishing classifier anytime by uploading a new labeled dataset.
+- **Interactive SOC-Console UI**: Dark, terminal-inspired Streamlit interface with live status pills, glowing risk gauges, and tabbed navigation for real-time analysis.
 
 ## 🧑‍💻 Technologies Used
 
@@ -29,55 +35,72 @@ An AI-powered phishing detection system using machine learning to classify email
 ## 🎯 Installation & Setup
 
 1. Clone the repository
-   
+
    ```bash
    git clone https://github.com/yourusername/AI-Powered-Phishing-Detection-System.git
    cd AI-Powered-Phishing-Detection-System
+   ```
 
 2. Install Dependencies
    Create and activate a virtual environment, then install required packages:
+
    ```bash
    python -m venv venv
    source venv/bin/activate   # For macOS/Linux
    venv\Scripts\activate      # For Windows
 
    pip install -r requirements.txt
+   ```
 
 3. Run the App
-   Start the Streamlit app to launch the phishing detection system:
+   Start the Streamlit app to launch the console:
+
    ```bash
-   streamlit run phishing_detection.py
+   streamlit run phishing_detector_app.py
+   ```
 
 4. Upload Dataset for Training (Optional)
-   Upload a CSV file with columns email_body (content of the email) and label (1 for phishing, 0 for safe) to train the model.
+   Upload a CSV file with columns `email_body` (content of the email) and `label` (1 for phishing, 0 for safe) in the **Model Training** tab to train the model. Sample datasets (`sample_emails.csv`, `training_dataset_large.csv`) are included in this repo for quick testing.
 
-🔍 How to Use
+## 🔍 How to Use
 
-- **Training the Model**: Upload a CSV file containing emails labeled as phishing or safe.
-- **Prediction**: Enter the body of an email, and the system will classify it as phishing or safe.
+The app is organized into four console tabs:
 
-Example Email to Test:
+| Tab | Purpose |
+|---|---|
+| 🔍 **Threat Scan** | Paste a single email body → get a phishing verdict + fraud risk gauge with matched risk categories |
+| 📦 **Bulk CSV Scan** | Upload a CSV of emails (`email_body` column) → batch phishing + fraud scoring, downloadable results |
+| 🗂 **Scan History** | Review every scan run this session, with summary counts and CSV export |
+| 🧠 **Model Training** | Upload a labeled CSV (`email_body`, `label`) to retrain the phishing classifier |
+
+**Example Email to Test:**
 
 - **Phishing Email**:
-  
-  ```bash
+
+  ```text
   Congratulations! You've won a $1000 gift card. Click here to claim your prize: http://phishing.com
+  ```
 
 - **Safe Email**:
 
-  ```bash
+  ```text
   Hey, just checking in on our project. Let me know your availability for a meeting.
+  ```
 
 5. Check Prediction
-   Click Check Phishing to see the prediction results for the email you entered.
+   Click **▶ Run Threat Scan** to see the phishing verdict and fraud risk score for the email you entered.
 
 ## 📊 Results
 
-The system will display whether the email is a phishing attempt or safe based on its body content and URL features.
+The console displays:
+- A **phishing verdict** (Phishing / Safe) based on trained model inference over the email body.
+- A **fraud risk score and level** (None / Low / Medium / High) based on matched social-engineering keyword categories.
+- A **URL signal score** summarizing domain/path/protocol/status characteristics of any links found.
+- A running **scan history** log for the session, exportable to CSV.
 
 ## 🛠️ Contributing
 
-Contributions are welcome! If you'd like to improve the system or add new features, feel free to fork the repository and submit a pull request.
+Contributions are welcome! If you'd like to improve the system or add new features (e.g., a trained ML-based fraud classifier, header/SPF/DKIM analysis, live threat-intel lookups), feel free to fork the repository and submit a pull request.
 
 ## 🙌 Acknowledgements
 
@@ -86,7 +109,7 @@ Contributions are welcome! If you'd like to improve the system or add new featur
 - Shields.io for badges.
 - FontAwesome for awesome icons.
 
-## 💻 Preview 
+## 💻 Preview
 
 ## Phishing Email:
 
@@ -96,19 +119,7 @@ Contributions are welcome! If you'd like to improve the system or add new featur
 
 ![test 2](https://github.com/user-attachments/assets/dcef2e5c-01d8-4fb3-9343-6e73d7cb3588)
 
-
-## 🌐 Connect with Me 
+## 🌐 Connect with Me
 
 - 📧 [Email](mailto:gauravghandat12@gmail.com)
 - 💼 [LinkedIn](www.linkedin.com/in/gaurav-ghandat-68a5a22b4)
-
-
-
-
-
-
-
-
-
-
-   

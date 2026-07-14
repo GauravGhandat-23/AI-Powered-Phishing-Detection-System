@@ -113,11 +113,11 @@ Contributions are welcome! If you'd like to improve the system or add new featur
 
 ## Phishing Email:
 
-![test 1](https://github.com/user-attachments/assets/d1bdae97-ee19-4ac1-bd3f-87b98bad89b8)
+<img width="1920" height="2119" alt="screencapture-localhost-8501-2026-07-14-17_48_27" src="https://github.com/user-attachments/assets/53264ac2-f380-47f8-9742-858a51320629" />
 
 ## Safe Email:
 
-![test 2](https://github.com/user-attachments/assets/dcef2e5c-01d8-4fb3-9343-6e73d7cb3588)
+<img width="1920" height="2104" alt="screencapture-localhost-8501-2026-07-14-17_49_35" src="https://github.com/user-attachments/assets/8921d5b7-d03d-4604-8575-f7bff5b588de" />
 
 ## 🌐 Connect with Me
 

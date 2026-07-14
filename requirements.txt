@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 pandas 
 scikit-learn 
 streamlit 
 nltk 
 beautifulsoup4 
 requests 
+=======
+pandas 
+scikit-learn 
+streamlit 
+nltk 
+beautifulsoup4 
+requests 
+>>>>>>> 72fd10d36626e80342aa047757a65096980cb9a1
 joblib
